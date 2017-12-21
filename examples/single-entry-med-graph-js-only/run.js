@@ -3,6 +3,8 @@ const webpack = require("webpack");
 const path = require("path");
 const Benchmark = require("benchmark");
 
+process.env.NODE_ENV = "production";
+
 const exampleName = path.basename(__dirname);
 
 const defaultConfig = require("../../webpack.config")({ example: exampleName });
