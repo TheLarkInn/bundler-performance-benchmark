@@ -1,9 +1,11 @@
 const Bundler = require("parcel-bundler");
 const webpack = require("webpack");
+const fs = require("fs");
 const path = require("path");
 const Benchmark = require("benchmark");
+const { humanifyCycleStats } = require("../util");
 
-process.env.NODE_ENV = "production";
+// process.env.NODE_ENV = "production";
 
 const exampleName = path.basename(__dirname);
 
@@ -40,13 +42,13 @@ suite
     }
   )
   .on("cycle", function(event) {
-    output.push(String(event.target));
+    output.push(humanifyCycleStats(__dirname, event));
   })
   .on("complete", function() {
-    output.forEach(element => {
-      console.log(element);
+    output.forEach(entry => {
+      console.log(`${entry.bundler}: ${entry.buildTime} | ${entry.buildSize}`);
     });
-    console.log("Fastest is " + this.filter("fastest").map("name"));
+    console.log(`Fastest is ${this.filter("fastest").map("name")}.`);
     process.exit(0);
   })
   .run({ async: true });
