@@ -6,8 +6,15 @@ module.exports = (env) => ({
     path: path.join(__dirname, "examples", `${env.example}`, "dist"),
     filename: "build.webpack.js"
   },
+  resolve: {
+    extensions: [".js", ".jsx"]
+  },
   module: {
     rules: [
+      {
+        test: /\.jsx$/,
+        use: "babel-loader"
+      },
       {
         test: /lodash-es/,
         sideEffects: false
