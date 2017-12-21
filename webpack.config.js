@@ -1,7 +1,10 @@
-module.exports = {
-  entry: "./src",
+const path = require("path");
+
+module.exports = (env) => ({
+  entry: `./examples/${env.example}/src`,
   output: {
-    filename: "dist/webpack-bundle.js"
+    path: path.join(__dirname, "examples", `${env.example}`, "dist"),
+    filename: "build.webpack.js"
   },
   module: {
     rules: [
@@ -11,4 +14,4 @@ module.exports = {
       }
     ]
   }
-};
+});

@@ -9,8 +9,8 @@
     "webpack": "webpack/webpack#next"
   },
   "scripts": {
-    "build:webpack": "webpack --mode production",
-    "build:parcel": "parcel build ./src/index.js"
+    "build:webpack": "webpack --mode production --env.example single-entry-med-graph-js-only",
+    "build:parcel": "parcel build ./examples/single-entry-med-graph-js-only/src/index.js -d ./examples/single-entry-med-graph-js-only/dist"
   },
   "devDependencies": {
     "webpack-cli": "^1.5.3"
