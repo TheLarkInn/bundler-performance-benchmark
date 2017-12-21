@@ -1,3 +1,13 @@
+#bundler-performance-benchmark
+
+## Why
+Showing numbers means nothing if you can't back it up. This is a joint effort between all bundlers involved to create a fair and unbiased set of benchmarks for build and size performance. 
+
+## How to Run
+* Clone repo
+* run `yarn`
+* run `yarn build:webpack && yarn build:parcel`
+* Run again for cache times
 
 ### Single Entry, Production, Medium Graph, JS Only
 
