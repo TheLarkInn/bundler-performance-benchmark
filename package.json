@@ -14,12 +14,18 @@
     "webpack": "webpack/webpack#next"
   },
   "scripts": {
-    "build:webpack": "webpack --mode production --env.example single-entry-med-graph-js-only",
-    "build:parcel": "parcel build ./examples/single-entry-med-graph-js-only/src/index.js -d ./examples/single-entry-med-graph-js-only/dist",
-    "build:webpack1": "webpack --mode production --env.example parcel-recipies-preact",
-    "build:parcel1": "parcel build ./examples/parcel-recipies-preact/src -d ./examples/parcel-recipies-preact/dist"
+    "build:webpack":
+      "webpack --mode production --env.example single-entry-med-graph-js-only",
+    "build:parcel":
+      "parcel build ./examples/single-entry-med-graph-js-only/src/index.js -d ./examples/single-entry-med-graph-js-only/dist",
+    "build:webpack1":
+      "webpack --mode production --env.example parcel-recipies-preact",
+    "build:parcel1":
+      "parcel build ./examples/parcel-recipies-preact/src -d ./examples/parcel-recipies-preact/dist",
+    "bench:1": "node ./examples/single-entry-med-graph-js-only/run.js"
   },
   "devDependencies": {
+    "benchmark": "^2.1.4",
     "webpack-cli": "^1.5.3"
   }
 }
