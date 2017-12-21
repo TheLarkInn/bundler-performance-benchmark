@@ -22,7 +22,8 @@
       "webpack --mode production --env.example parcel-recipies-preact",
     "build:parcel1":
       "parcel build ./examples/parcel-recipies-preact/src -d ./examples/parcel-recipies-preact/dist",
-    "bench:1": "node ./examples/single-entry-med-graph-js-only/run.js"
+    "bench:1": "node ./examples/single-entry-med-graph-js-only/run.js",
+    "bench:2": "node ./examples/parcel-recipies-preact/run.js"
   },
   "devDependencies": {
     "benchmark": "^2.1.4",
