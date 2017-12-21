@@ -10,7 +10,7 @@ const { humanifyCycleStats } = require("../util");
 const exampleName = path.basename(__dirname);
 
 const defaultConfig = require("../../webpack.config")({ example: exampleName });
-const index = path.join(__dirname, "src", "index.js");
+const index = path.join(__dirname, "src", "index.jsx");
 const suite = new Benchmark.Suite();
 let output = [];
 suite
