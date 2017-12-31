@@ -17,7 +17,7 @@ Showing numbers means nothing if you can't back it up. This is a joint effort be
 | parcel-bundler | 1.2.1                |    1.78s   |         473ms       |  21.094kb   |      0     |
 |                |                      |            |                     |             |            |
 
-### [Parcel Recipies (Preact)](https://parceljs.org/recipes.html#preact)
+### [Parcel Recipes (Preact)](https://parceljs.org/recipes.html#preact)
 
 |     bundler    | version              | build time | build time w/ cache | bundle size | config LOC  |
 |:--------------:|----------------------|------------|---------------------|-------------|-------------|
