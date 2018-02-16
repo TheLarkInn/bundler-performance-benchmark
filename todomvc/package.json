@@ -1,0 +1,12 @@
+{
+  "name": "todomvc-es6",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "exit 0"
+  },
+  "dependencies": {
+    "todomvc-app-css": "^2.0.1",
+    "todomvc-common": "^1.0.2"
+  }
+}

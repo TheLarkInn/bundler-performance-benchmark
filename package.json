@@ -1,7 +1,6 @@
 {
-  "name": "bundler-performance-benchmark",
-  "version": "1.0.0",
-  "main": "index.js",
+  "private": true,
+  "workspaces": ["todomvc"],
   "license": "MIT",
   "dependencies": {
     "babel-loader": "^7.1.2",
@@ -14,12 +13,9 @@
     "webpack": "webpack/webpack#next"
   },
   "scripts": {
-    "build:webpack": "webpack --mode production --env.example single-entry-med-graph-js-only",
-    "build:parcel": "parcel build ./examples/single-entry-med-graph-js-only/src/index.js -d ./examples/single-entry-med-graph-js-only/dist",
-    "build:webpack1": "webpack --mode production --env.example parcel-recipes-preact",
-    "build:parcel1": "parcel build ./examples/parcel-recipes-preact/src -d ./examples/parcel-recipes-preact/dist",
-    "bench:1": "node ./examples/single-entry-med-graph-js-only/run.js",
-    "bench:2": "node ./examples/parcel-recipes-preact/run.js"
+    "build:webpack": "webpack --mode production",
+    "build:parcel": "parcel build ./todomvc/src/index.js -d ./todomvc/dist/parcel",
+    "bench": "node ./todomvc/bench.js"
   },
   "devDependencies": {
     "benchmark": "^2.1.4",

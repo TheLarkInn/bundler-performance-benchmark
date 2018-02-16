@@ -5,11 +5,7 @@ const path = require("path");
 const Benchmark = require("benchmark");
 const { humanifyCycleStats } = require("../util");
 
-// process.env.NODE_ENV = "production";
-
-const exampleName = path.basename(__dirname);
-
-const defaultConfig = require("../../webpack.config")({ example: exampleName });
+const defaultConfig = require("../webpack.config");
 const index = path.join(__dirname, "src", "index.js");
 const suite = new Benchmark.Suite();
 let output = [];
@@ -18,7 +14,7 @@ suite
     "parcel",
     deferred => {
       const bundler = new Bundler(index, {
-        outDir: path.join(__dirname, "dist-parcel"),
+        outDir: path.join(__dirname, "dist", "parcel"),
         cache: false,
         logLevel: 0
       });

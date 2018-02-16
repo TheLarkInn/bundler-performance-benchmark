@@ -25,7 +25,7 @@ function humanifyCycleStats(sampleDirectory, event) {
     unit = "ms";
   }
   mean = mean.toFixed(2);
-  const distDir = path.join(sampleDirectory, `dist-${name}`);
+  const distDir = path.join(sampleDirectory, "dist", name);
   const dirSize = getFolderSize(distDir);
   return {
     bundler: name,

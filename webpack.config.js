@@ -1,24 +1,9 @@
 const path = require("path");
 
-module.exports = env => ({
-  entry: `./examples/${env.example}/src`,
+module.exports = {
+  entry: `./todomvc/src`,
   output: {
-    path: path.join(__dirname, "examples", `${env.example}`, "dist-webpack"),
-    filename: "build.webpack.js"
+    path: path.join(__dirname, "todomvc", "dist", "webpack"),
+    filename: "index.js"
   },
-  resolve: {
-    extensions: [".js", ".jsx"]
-  },
-  module: {
-    rules: [
-      {
-        test: /\.jsx$/,
-        use: "babel-loader"
-      },
-      {
-        test: /lodash-es/,
-        sideEffects: false
-      }
-    ]
-  }
-});
+};
