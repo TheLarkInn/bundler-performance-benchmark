@@ -1,11 +1,14 @@
 {
   "private": true,
-  "workspaces": ["todomvc"],
+  "workspaces": [
+    "todomvc"
+  ],
   "license": "MIT",
   "dependencies": {
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",
     "babel-preset-preact": "^1.1.0",
+    "chalk": "^2.3.1",
     "lodash-es": "^4.17.4",
     "parcel-bundler": "^1.2.1",
     "preact": "^8.2.7",
@@ -13,9 +16,9 @@
     "webpack": "webpack/webpack#next"
   },
   "scripts": {
-    "build:webpack": "webpack --mode production",
+    "build:webpack": "webpack --mode production --env todomvc",
     "build:parcel": "parcel build ./todomvc/src/index.js -d ./todomvc/dist/parcel",
-    "bench": "node ./todomvc/bench.js"
+    "bench": "node bench.js todomvc"
   },
   "devDependencies": {
     "benchmark": "^2.1.4",

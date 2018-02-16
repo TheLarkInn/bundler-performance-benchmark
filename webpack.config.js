@@ -1,9 +1,9 @@
 const path = require("path");
 
-module.exports = {
-  entry: `./todomvc/src`,
+module.exports = dir => ({
+  entry: `./${dir}/src`,
   output: {
-    path: path.join(__dirname, "todomvc", "dist", "webpack"),
+    path: path.join(__dirname, dir, "dist", "webpack"),
     filename: "index.js"
   },
-};
+});
