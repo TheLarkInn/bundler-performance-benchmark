@@ -16,10 +16,10 @@
   "scripts": {
     "build:webpack": "webpack --mode production --env.example single-entry-med-graph-js-only",
     "build:parcel": "parcel build ./examples/single-entry-med-graph-js-only/src/index.js -d ./examples/single-entry-med-graph-js-only/dist",
-    "build:webpack1": "webpack --mode production --env.example parcel-recipies-preact",
-    "build:parcel1": "parcel build ./examples/parcel-recipies-preact/src -d ./examples/parcel-recipies-preact/dist",
+    "build:webpack1": "webpack --mode production --env.example parcel-recipes-preact",
+    "build:parcel1": "parcel build ./examples/parcel-recipes-preact/src -d ./examples/parcel-recipes-preact/dist",
     "bench:1": "node ./examples/single-entry-med-graph-js-only/run.js",
-    "bench:2": "node ./examples/parcel-recipies-preact/run.js"
+    "bench:2": "node ./examples/parcel-recipes-preact/run.js"
   },
   "devDependencies": {
     "benchmark": "^2.1.4",
