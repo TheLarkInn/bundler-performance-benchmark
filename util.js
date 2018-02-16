@@ -16,7 +16,7 @@ function getFolderSize(dir) {
 }
 
 function humanifyCycleStats(sampleDirectory, event) {
-  const name = event.target.name;
+  const [name, version] = event.target.name.split('@');
   const stats = event.target.stats;
   let mean = stats.mean;
   let unit = "s";
@@ -29,8 +29,9 @@ function humanifyCycleStats(sampleDirectory, event) {
   const dirSize = getFolderSize(distDir);
   return {
     bundler: name,
+    bundlerVersion: version,
     buildTime: `${mean}${unit}`,
-    buildSize: filesize(dirSize).human()
+    buildSize: filesize(dirSize).human(),
   };
 }
 module.exports = {

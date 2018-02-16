@@ -1,9 +1,13 @@
 const chalk = require('chalk');
+const Table = require('cli-table');
 const Bundler = require("parcel-bundler");
+const { version: parcelVersion } = require('parcel-bundler/package.json');
 const webpack = require("webpack");
+const { version: webpackVersion } = require('webpack/package.json');
 const fs = require("fs");
 const path = require("path");
 const Benchmark = require("benchmark");
+const { orderBy } = require('lodash');
 const { humanifyCycleStats } = require("./util");
 
 const suites = process.argv.slice(2);
@@ -16,7 +20,7 @@ suites.forEach(dir => {
     let output = [];
     suite
       .add(
-        "parcel",
+        `parcel@${parcelVersion}`,
         deferred => {
           const bundler = new Bundler(index, {
             outDir: path.join(dir, "dist", "parcel"),
@@ -32,7 +36,7 @@ suites.forEach(dir => {
         }
       )
       .add(
-        "webpack",
+        `webpack@${webpackVersion}`,
         deferred => {
           webpack(defaultConfig, (err, stats) => {
             deferred.resolve();
@@ -46,11 +50,23 @@ suites.forEach(dir => {
         output.push(humanifyCycleStats(dir, event));
       })
       .on("complete", function() {
-        console.log(chalk.bold(`\n${dir}\n${dir.replace(/./g, '-')}\n`));
-        output.forEach(entry => {
-          console.log(`${entry.bundler}: ${entry.buildTime} | ${entry.buildSize}`);
+
+        var table = new Table({
+            head: ['bundler', 'time', 'output size'].map(x => chalk.green(x)),
         });
-        console.log(chalk.green(`Fastest is ${this.filter("fastest").map("name")}.\n`));
+
+        orderBy(output, 'buildTime').forEach(entry => {
+          table.push([
+            `${entry.bundler}@${entry.bundlerVersion}`,
+            entry.buildTime,
+            entry.buildSize,
+          ])
+        });
+
+        console.log(chalk.bold(`\n> ${dir}\n`));
+        console.log(table.toString());
+        console.log(`\n`)
+
         process.exit(0);
       })
       .run({ async: true });
